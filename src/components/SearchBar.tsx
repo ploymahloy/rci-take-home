@@ -19,8 +19,6 @@ const SearchBar: React.FC = () => {
   const {
     data: suggestions = [],
     isLoading,
-    error,
-    isError
   } = useQuery({
     queryKey: ['suggestions', debouncedQuery],
     queryFn: () => fetchSuggestions(debouncedQuery),
@@ -77,7 +75,7 @@ const SearchBar: React.FC = () => {
       )}
 
       {/* Suggestions */}
-      {debouncedQuery.trim().length > 0 && !isLoading && !isError && (
+      {debouncedQuery.trim().length > 0 && !isLoading && (
         <div className="suggestions-dropdown">
           {suggestions.length === 0 ? NoSuggestions : getSuggestions()}
         </div>
