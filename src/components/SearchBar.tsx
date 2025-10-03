@@ -76,13 +76,6 @@ const SearchBar: React.FC = () => {
         </div>
       )}
 
-      {/* Error handling */}
-      {isError && (
-        <div className="error-message">
-          {error?.message || 'An error occurred while fetching suggestions'}
-        </div>
-      )}
-
       {/* Suggestions */}
       {debouncedQuery.trim().length > 0 && !isLoading && !isError && (
         <div className="suggestions-dropdown">
