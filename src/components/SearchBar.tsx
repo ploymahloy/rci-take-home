@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, type JSX } from 'react';
+import React, { useState, useEffect, type JSX } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchSuggestions } from '../services/mockAPI';
 import { type Suggestion } from '../types';
@@ -27,14 +27,14 @@ const SearchBar: React.FC = () => {
     enabled: debouncedQuery.trim().length > 0,
   });
 
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
-  }, []);
+  };
 
-  const handleSuggestionClick = useCallback((suggestion: Suggestion) => {
+  const handleSuggestionClick = (suggestion: Suggestion) => {
     setQuery(suggestion.text);
     setDebouncedQuery(suggestion.text);
-  }, []);
+  };
 
   const NoSuggestions: JSX.Element = (
     <div className="no-suggestions">
