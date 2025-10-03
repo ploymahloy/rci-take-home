@@ -1,8 +1,4 @@
-export interface Suggestion {
-  id: string;
-  text: string;
-  category: string;
-}
+import { type Suggestion } from '../types';
 
 const mockSuggestions: Suggestion[] = [
   { id: '1', text: 'React Query', category: 'Library' },
